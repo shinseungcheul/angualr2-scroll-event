@@ -106,11 +106,13 @@ export class ScrollEventDirective implements OnInit, OnDestroy {
   }
 
   scrollUp(data : ScrollResult ) : void {
-    this.zone.run( () => this.scrolledUp.emit(data));
+    // this.zone.run( () => this.scrolledUp.emit(data));
+    this.scrolledUp.emit(data);
   }
 
   scrollDown (data : ScrollResult) : void {
-    this.zone.run( () => this.scrolledDown.emit(data));
+    // this.zone.run( () => this.scrolledDown.emit(data));
+    this.scrolledDown.emit(data);
   }
   //scroll event function end
 
@@ -124,33 +126,7 @@ export class ScrollEventDirective implements OnInit, OnDestroy {
   }
 
 
-  // getScrollState(container:PositionState){
-  //   const isScrollingDown = this.isScrollingDown(container)
-  //   const isScrolling = this.isScrolling(container,isScrollingDown)
-  //   return {isScrollingDown,isScrolling};
-  // }
-  //
-  // isScrollingDown(container:PositionState) : boolean{
-  //   // console.log('isScrollingDown', this.lastScrollPosition, container.scrolledUntilNow,this.lastScrollPosition < container.scrolledUntilNow)
-  //   return this.lastScrollPosition < container.scrolledUntilNow;
-  // }
-  //
-  // isScrolling (container: PositionState,  scrollingDown: boolean) {
-  //   let remaining: number;
-  //   let containerBreakpoint: number;
-  //   if (scrollingDown) {
-  //     remaining = container.scrollHeight - container.scrolledUntilNow;
-  //     containerBreakpoint = container.height * this._triggerDown + 10;
-  //     console.log(container,remaining,containerBreakpoint,'down',this._triggerup,this._triggerDown,scrollingDown,this.lastScrollPosition,'<',container.scrolledUntilNow)
-  //   } else {
-  //     remaining = container.scrolledUntilNow;
-  //     containerBreakpoint = container.height * this._triggerup + 10;
-  //     console.log(container,remaining,containerBreakpoint,'up',this._triggerup,this._triggerDown,scrollingDown,this.lastScrollPosition,'<',container.scrolledUntilNow)
-  //   }
-  //   const shouldScroll: boolean = remaining <= containerBreakpoint;
-  //   this.lastScrollPosition = container.scrolledUntilNow;
-  //   return shouldScroll;
-  // }
+
 
 }
 
